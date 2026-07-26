@@ -1,17 +1,211 @@
-Ibrahim | Game Programmer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibrahim Ishaq | Game Programmer</title>
+  <style>
+    :root {
+      --spidey-red: #E23636;
+      --spidey-blue: #0B1426;
+      --bg-light: #f4f4f9;
+      --text-dark: #333333;
+    }
 
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
 
-  
-    Ibrahim
-    Game Programmer & Creative Developer
-    Building interactive experiences with C++, C#, Unity, and Unreal.
-  
-
-  
+    /* Header Section */
+    header {
+      background-color: var(--spidey-blue);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-bottom: 6px solid var(--spidey-red);
+    }
     
-      About Me
-      I focus on technical art, game programming, and turning ideas into playable realities.
-    
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
+    header p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+    }
+
+    .contact-links a {
+      color: var(--spidey-red);
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+    }
     
-      Projects
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Wrapper */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--spidey-blue);
+      border-bottom: 2px solid var(--spidey-red);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+    }
+
+    /* Project Cards */
+    .project {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--spidey-red);
+      transition: transform 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: var(--spidey-blue);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-date {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .project a {
+      color: var(--spidey-red);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-badge {
+      background-color: var(--spidey-blue);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ibrahim Ishaq</h1>
+    <p>Software Developer | Game Programmer | Technical Artist</p>
+    <div class="contact-links">
+      <a href="mailto:ibrahimmiishaq@gmail.com">Email Me</a> | 
+      <a href="https://www.linkedin.com/in/ibrahimig" target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>I am a Creative Developer & Technical Artist with a strong background in game programming, 3D modeling, animation, and VFX compositing. Proficient in C++ and C# with hands-on experience building both 2D and 3D interactive experiences in Unreal Engine and Unity. Driven by a passion for game history, mechanics, and collaborative problem-solving, I am dedicated to bringing creative concepts to life and supporting my team’s success.</p>
+    </section>
+
+    <section>
+      <h2>Skills & Technologies</h2>
+      <div class="skills-grid">
+        <span class="skill-badge">C++ & C#</span>
+        <span class="skill-badge">Unreal Engine</span>
+        <span class="skill-badge">Unity</span>
+        <span class="skill-badge">GameMaker</span>
+        <span class="skill-badge">HLSL / Shaders</span>
+        <span class="skill-badge">Python / Kotlin</span>
+        <span class="skill-badge">Autodesk Maya</span>
+        <span class="skill-badge">Substance Painter</span>
+        <span class="skill-badge">Foundry Nuke</span>
+        <span class="skill-badge">Git Version Control</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects: Engine Architecture</h2>
+      
+      <div class="project">
+        <h3>IExeEngine <span class="project-date">April 2025</span></h3>
+        <p><em>A custom game engine capable of developing 2D or 3D games.</em></p>
+        <ul>
+          <li>Hands-on experience with the complete C++ build process, including linking and compilation.</li>
+          <li>Integrated external elements, such as DirectX 11 & the Bullet physics engine, to allow for in-engine rendering and physics.</li>
+          <li>Implemented the graphics pipeline manually using custom shaders.</li>
+        </ul>
+        <a href="https://github.com/IbrahimExe/IExeEngine" target="_blank">View on GitHub &rarr;</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects: Gameplay & Interactive Systems</h2>
+
+      <div class="project">
+        <h3>Bring the Balance <span class="project-date">August 2026</span></h3>
+        <p><em>A 3D, RPG Simulation game built in Unreal Engine for CVGM.</em></p>
+        <ul>
+          <li>An educational interactive installation proposed by the Canadian Video Game Museum and built at the Centre for Digital Media in a team of 6.</li>
+          <li>Utilized a combination of C++ programming inside Unreal, alongside Blueprint scripting.</li>
+          <li>Designed and developed a scalable user interface setup and functionality.</li>
+          <li>Collaborated with developer teammates using version control on GitLab.</li>
+        </ul>
+        <a href="https://thecdm.ca/projects/revealing-art-balance-canadian-video-game-museum" target="_blank">View Project &rarr;</a>
+      </div>
+
+      <div class="project">
+        <h3>De-File <span class="project-date">Feb 2026</span></h3>
+        <p><em>A 2D physics-based puzzle game made in one week inside Unity.</em></p>
+        <ul>
+          <li>Implemented a physics-based particle system that simulates liquid behavior in a 2D environment.</li>
+          <li>Designed and developed the UI system (menus, objective screens, effects) and programmed functionality in C#.</li>
+        </ul>
+        <a href="https://ibrahimexe.itch.io/de-file" target="_blank">Play on Itch.io &rarr;</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p><strong>Bachelor of Science – Game Programming</strong><br>
+      LaSalle College Vancouver | 2023 - 2026</p>
+      
+      <p><strong>3D Design & Visual Effects Diploma</strong><br>
+      Vancouver Film School | 2022 - 2023</p>
+      
+      <p><strong>Foundation Visual Arts & Design Diploma</strong><br>
+      Vancouver Film School | 2021 - 2022</p>
+    </section>
+
+  </div>
+</body>
+</html>
