@@ -1,211 +1,1066 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ibrahim Ishaq | Game Programmer</title>
-  <style>
-    :root {
-      --spidey-red: #E23636;
-      --spidey-blue: #0B1426;
-      --bg-light: #f4f4f9;
-      --text-dark: #333333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ibrahim Ishaq — Game Programmer & Technical Artist</title>
+<meta name="description" content="Portfolio of Ibrahim Ishaq — game programmer and technical artist. C++ engines, Unreal, Unity, and more.">
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    /* Header Section */
-    header {
-      background-color: var(--spidey-blue);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-      border-bottom: 6px solid var(--spidey-red);
-    }
-    
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+<style>
+  /* ============================================
+     TOKENS
+  ============================================ */
+  :root{
+    --void:#080b13;
+    --panel:#121a2c;
+    --panel-hi:#1b2540;
+    --line:#2a3454;
+    --red:#e0292a;
+    --red-dim:#a11f20;
+    --brick:#5c1616;
+    --paper:#f2efe6;
+    --muted:#8d93a8;
+    --gold:#f2a93b;
 
-    header p {
-      font-size: 1.2rem;
-      color: #cbd5e1;
-    }
+    --display:'Bangers', cursive;
+    --body:'Space Grotesk', system-ui, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
 
-    .contact-links a {
-      color: var(--spidey-red);
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 10px;
-    }
-    
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
+    --hard: 6px 6px 0 var(--red);
+    --hard-sm: 4px 4px 0 var(--red);
+    --hard-black: 6px 6px 0 #000;
 
-    /* Main Content Wrapper */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+    --maxw: 1180px;
+  }
 
-    h2 {
-      color: var(--spidey-blue);
-      border-bottom: 2px solid var(--spidey-red);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-      text-transform: uppercase;
-      font-size: 1.5rem;
-    }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
 
-    /* Project Cards */
-    .project {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      border-left: 4px solid var(--spidey-red);
-      transition: transform 0.2s;
-    }
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--paper);
+    font-family:var(--body);
+    line-height:1.6;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(224,41,42,0.10), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(242,169,59,0.06), transparent 45%);
+  }
 
-    .project:hover {
-      transform: translateY(-3px);
-    }
+  img,video{max-width:100%; display:block;}
+  a{color:inherit;}
 
-    .project h3 {
-      margin-top: 0;
-      color: var(--spidey-blue);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  ::selection{background:var(--red); color:#fff;}
 
-    .project-date {
-      font-size: 0.9rem;
-      color: #666;
-    }
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:3px;
+  }
 
-    .project a {
-      color: var(--spidey-red);
-      font-weight: bold;
-      text-decoration: none;
-    }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 1.5rem;}
 
-    /* Skills Grid */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
+  h1,h2,h3{font-family:var(--display); letter-spacing:1px; margin:0; font-weight:400;}
 
-    .skill-badge {
-      background-color: var(--spidey-blue);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
+  .eyebrow{
+    font-family:var(--mono);
+    color:var(--gold);
+    font-size:0.78rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    display:inline-block;
+    margin-bottom:0.6rem;
+  }
+
+  .section-title{
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    text-transform:uppercase;
+    color:var(--paper);
+    text-shadow: 3px 3px 0 var(--red);
+    margin-bottom:0.4rem;
+  }
+
+  section{padding:5.5rem 0; position:relative;}
+
+  /* ============================================
+     HALFTONE / WEB TEXTURE HELPERS
+  ============================================ */
+  .halftone{
+    background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+
+  /* ============================================
+     WEB-THREAD SCROLL SIGNATURE (desktop)
+  ============================================ */
+  #web-thread-wrap{
+    position:fixed;
+    top:0; left:26px;
+    height:100vh;
+    width:34px;
+    z-index:40;
+    pointer-events:none;
+    display:flex;
+    align-items:center;
+  }
+  #web-thread-wrap svg{overflow:visible;}
+  #thread-path{
+    fill:none;
+    stroke:var(--line);
+    stroke-width:2;
+  }
+  #thread-progress{
+    fill:none;
+    stroke:var(--red);
+    stroke-width:2.5;
+    stroke-dasharray:3000;
+    stroke-dashoffset:3000;
+  }
+  #thread-spider{
+    transform:translateY(0px);
+    transition:transform 60ms linear;
+  }
+  @media (max-width: 900px){
+    #web-thread-wrap{display:none;}
+  }
+
+  /* ============================================
+     NAV
+  ============================================ */
+  header#top-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(8,11,19,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom:3px solid var(--red);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0.9rem 1.5rem;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:0.6rem;
+    font-family:var(--display);
+    font-size:1.5rem;
+    letter-spacing:1px;
+    text-decoration:none;
+  }
+  .brand-mark{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--red);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 3px #000, 0 0 18px rgba(224,41,42,0.6);
+    flex-shrink:0;
+  }
+  .brand-mark svg{width:20px; height:20px;}
+
+  nav#primary-nav{display:flex; gap:1.8rem; align-items:center;}
+  nav#primary-nav a{
+    font-family:var(--mono);
+    font-size:0.82rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--muted);
+    position:relative;
+    padding-bottom:4px;
+    transition:color 0.2s;
+  }
+  nav#primary-nav a:hover{color:var(--paper);}
+  nav#primary-nav a::after{
+    content:'';
+    position:absolute; left:0; bottom:0;
+    width:0; height:2px; background:var(--red);
+    transition:width 0.25s;
+  }
+  nav#primary-nav a:hover::after{width:100%;}
+
+  #nav-toggle{
+    display:none;
+    background:none; border:2px solid var(--red); border-radius:4px;
+    width:42px; height:38px;
+    cursor:pointer;
+    flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  }
+  #nav-toggle span{width:20px; height:2px; background:var(--paper); display:block; transition:0.25s;}
+  #nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  #nav-toggle.open span:nth-child(2){opacity:0;}
+  #nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width: 760px){
+    #nav-toggle{display:flex;}
+    nav#primary-nav{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--void);
+      border-bottom:3px solid var(--red);
+      flex-direction:column; align-items:flex-start;
+      gap:0; padding:0.5rem 1.5rem 1.2rem;
+      max-height:0; overflow:hidden;
+      transition:max-height 0.3s ease;
     }
-  </style>
+    nav#primary-nav.open{max-height:400px;}
+    nav#primary-nav a{padding:0.7rem 0; width:100%; border-bottom:1px solid var(--line);}
+  }
+
+  /* ============================================
+     HERO
+  ============================================ */
+  #hero{
+    position:relative;
+    min-height:92vh;
+    display:flex; align-items:center;
+    padding:8rem 0 5rem;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  #hero-media{
+    position:absolute; inset:0; z-index:-2;
+    background:
+      linear-gradient(180deg, rgba(8,11,19,0.55) 0%, rgba(8,11,19,0.85) 60%, var(--void) 100%),
+      repeating-linear-gradient(45deg, rgba(224,41,42,0.05) 0 2px, transparent 2px 40px),
+      repeating-linear-gradient(-45deg, rgba(224,41,42,0.05) 0 2px, transparent 2px 40px),
+      radial-gradient(circle at 50% 20%, #1a2440 0%, var(--void) 70%);
+    background-size: cover, auto, auto, cover;
+  }
+  #hero-video{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; z-index:-3;
+    opacity:0.55;
+  }
+  #spidey-sense{
+    position:absolute; inset:0; z-index:-1;
+    pointer-events:none;
+    background: radial-gradient(circle 380px at var(--mx,50%) var(--my,20%), rgba(242,169,59,0.14), transparent 70%);
+  }
+  .hero-inner{max-width:var(--maxw); margin:0 auto; padding:0 1.5rem; width:100%;}
+  .hero-eyebrow{
+    font-family:var(--mono); color:var(--gold); letter-spacing:3px; text-transform:uppercase;
+    font-size:0.85rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.6rem;
+  }
+  .hero-eyebrow::before{content:''; width:26px; height:2px; background:var(--gold); display:inline-block;}
+  h1#hero-name{
+    font-size:clamp(3.2rem, 10vw, 7.5rem);
+    line-height:0.95;
+    color:var(--paper);
+    text-shadow: 4px 4px 0 var(--red), 8px 8px 0 #000;
+    text-transform:uppercase;
+  }
+  #hero-role{
+    font-family:var(--mono);
+    font-size:clamp(0.95rem, 2vw, 1.15rem);
+    color:var(--paper);
+    background:var(--red);
+    display:inline-block;
+    padding:0.35rem 0.9rem;
+    margin-top:1.2rem;
+    box-shadow:var(--hard-black);
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  #hero-lede{
+    max-width:560px;
+    margin-top:2rem;
+    color:var(--muted);
+    font-size:1.05rem;
+  }
+  .hero-cta{display:flex; gap:1rem; margin-top:2.4rem; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:0.85rem 1.6rem;
+    border:2px solid var(--paper);
+    color:var(--paper);
+    display:inline-flex; align-items:center; gap:0.5rem;
+    box-shadow:var(--hard-sm);
+    transition:transform 0.15s, box-shadow 0.15s;
+    cursor:pointer;
+    background:transparent;
+  }
+  .btn:hover{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--red);}
+  .btn.primary{background:var(--red); border-color:var(--red);}
+  .btn.primary:hover{box-shadow:2px 2px 0 var(--gold);}
+
+  .scroll-cue{
+    position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+    font-family:var(--mono); font-size:0.7rem; letter-spacing:2px; color:var(--muted);
+    text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  }
+  .scroll-cue span{width:2px; height:34px; background:linear-gradient(var(--red), transparent); animation:pulse-down 1.6s infinite;}
+  @keyframes pulse-down{0%{opacity:0.2;} 50%{opacity:1;} 100%{opacity:0.2;}}
+
+  /* ============================================
+     ABOUT
+  ============================================ */
+  #about .about-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr; gap:3rem; align-items:start;
+  }
+  #about p{color:var(--muted); font-size:1.05rem; max-width:60ch;}
+  #about p strong{color:var(--paper);}
+  .stat-card{
+    background:var(--panel);
+    border:2px solid var(--line);
+    padding:1.2rem 1.4rem;
+    margin-bottom:1rem;
+    box-shadow:var(--hard-black);
+  }
+  .stat-card .num{font-family:var(--display); font-size:2.2rem; color:var(--gold); display:block;}
+  .stat-card .label{font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;}
+  @media (max-width:800px){#about .about-grid{grid-template-columns:1fr;}}
+
+  /* ============================================
+     SKILLS
+  ============================================ */
+  .skills-grid{display:flex; flex-wrap:wrap; gap:0.7rem; margin-top:2rem;}
+  .skill-badge{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    padding:0.55rem 1rem;
+    background:var(--panel);
+    border:2px solid var(--line);
+    color:var(--paper);
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .skill-badge:hover{border-color:var(--red); transform:translateY(-2px);}
+
+  /* ============================================
+     PROJECTS
+  ============================================ */
+  .filter-row{
+    display:flex; flex-wrap:wrap; gap:0.6rem; margin:2rem 0 2.6rem;
+  }
+  .filter-btn{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    background:transparent;
+    color:var(--muted);
+    border:2px solid var(--line);
+    padding:0.5rem 0.95rem;
+    cursor:pointer;
+    transition:all 0.2s;
+  }
+  .filter-btn:hover{color:var(--paper); border-color:var(--paper);}
+  .filter-btn.active{background:var(--red); border-color:var(--red); color:#fff;}
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+    gap:1.8rem;
+  }
+
+  .project-card{
+    background:var(--panel);
+    border:2px solid var(--line);
+    box-shadow:var(--hard-black);
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    transition:transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    opacity:1;
+  }
+  .project-card:hover{
+    transform:translate(-3px,-3px);
+    box-shadow:9px 9px 0 var(--red);
+    border-color:var(--red);
+  }
+  .project-card.hidden-card{display:none;}
+
+  .card-media{
+    position:relative;
+    aspect-ratio:16/9;
+    background:var(--void);
+    overflow:hidden;
+    border-bottom:2px solid var(--line);
+  }
+  .card-media .glyph-bg{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display);
+    font-size:5rem;
+    color:rgba(255,255,255,0.06);
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .card-media img, .card-media video{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .card-media .cat-icon{
+    position:absolute; top:0.7rem; left:0.7rem;
+    width:34px; height:34px;
+    background:var(--red);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:2px 2px 0 #000;
+  }
+  .card-media .cat-icon svg{width:18px; height:18px; stroke:#fff; fill:none;}
+
+  .card-body{padding:1.3rem 1.4rem 1.5rem; display:flex; flex-direction:column; gap:0.7rem; flex:1;}
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:0.6rem;}
+  .card-body h3{
+    font-family:var(--body); font-weight:700; font-size:1.15rem; color:var(--paper); letter-spacing:0;
+    text-transform:none;
+  }
+  .team-badge{
+    font-family:var(--mono); font-size:0.68rem; letter-spacing:0.5px;
+    padding:0.25rem 0.55rem; white-space:nowrap;
+    border:1px solid var(--line); color:var(--muted); text-transform:uppercase;
+    flex-shrink:0;
+  }
+  .team-badge.solo{border-color:var(--gold); color:var(--gold);}
+
+  .card-type{
+    font-family:var(--mono); font-size:0.72rem; color:var(--red); text-transform:uppercase; letter-spacing:1px;
+  }
+  .card-desc{color:var(--muted); font-size:0.92rem; flex:1;}
+  .card-links{display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:0.4rem;}
+  .card-links a{
+    font-family:var(--mono); font-size:0.78rem; text-decoration:none; color:var(--paper);
+    display:flex; align-items:center; gap:0.35rem;
+    border-bottom:1px solid var(--red); padding-bottom:2px;
+    transition:color 0.2s;
+  }
+  .card-links a:hover{color:var(--gold); border-color:var(--gold);}
+  .card-links svg{width:14px; height:14px; flex-shrink:0;}
+
+  /* ============================================
+     EDUCATION
+  ============================================ */
+  .edu-list{border-left:3px solid var(--red); padding-left:1.6rem; display:flex; flex-direction:column; gap:1.8rem; margin-top:2rem;}
+  .edu-item{position:relative;}
+  .edu-item::before{
+    content:''; position:absolute; left:-1.68rem; top:0.35rem;
+    width:11px; height:11px; border-radius:50%; background:var(--gold);
+    box-shadow:0 0 0 4px var(--void), 0 0 0 6px var(--line);
+  }
+  .edu-item h3{font-family:var(--body); font-weight:700; font-size:1.1rem; color:var(--paper);}
+  .edu-item .edu-school{color:var(--red); font-family:var(--mono); font-size:0.85rem;}
+  .edu-item .edu-date{color:var(--muted); font-family:var(--mono); font-size:0.78rem; text-transform:uppercase;}
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  footer{
+    border-top:3px solid var(--red);
+    padding:3.5rem 0 2.5rem;
+    text-align:center;
+    background:var(--panel);
+  }
+  footer h2{font-size:clamp(2rem,6vw,3rem); text-shadow:3px 3px 0 var(--red); text-transform:uppercase;}
+  footer p{color:var(--muted); max-width:50ch; margin:1rem auto 2rem;}
+  .footer-links{display:flex; justify-content:center; gap:1.2rem; flex-wrap:wrap; margin-bottom:2rem;}
+  .footer-fine{font-family:var(--mono); font-size:0.75rem; color:var(--muted);}
+
+  #back-to-top{
+    position:fixed; bottom:1.8rem; right:1.8rem; z-index:45;
+    width:48px; height:48px; border-radius:50%;
+    background:var(--red); border:3px solid #000;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.5);
+    opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.2s;
+  }
+  #back-to-top.show{opacity:1; pointer-events:auto;}
+  #back-to-top:hover{transform:translateY(-3px);}
+  #back-to-top svg{width:20px; height:20px; stroke:#fff;}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Ibrahim Ishaq</h1>
-    <p>Software Developer | Game Programmer | Technical Artist</p>
-    <div class="contact-links">
-      <a href="mailto:ibrahimmiishaq@gmail.com">Email Me</a> | 
-      <a href="https://www.linkedin.com/in/ibrahimig" target="_blank">LinkedIn</a>
-    </div>
-  </header>
+<!-- ============================================
+     WEB THREAD (signature scroll element, desktop only)
+============================================ -->
+<div id="web-thread-wrap" aria-hidden="true">
+  <svg width="34" height="100vh" viewBox="0 0 34 3000" preserveAspectRatio="none">
+    <path id="thread-path" d="M17,0 L17,3000"></path>
+    <path id="thread-progress" d="M17,0 L17,3000"></path>
+  </svg>
+  <svg id="thread-spider" width="26" height="26" viewBox="0 0 26 26" style="position:absolute; top:0; left:4px;">
+    <circle cx="13" cy="13" r="6" fill="#e0292a"/>
+    <g stroke="#080b13" stroke-width="1.4">
+      <line x1="13" y1="7" x2="7" y2="3"/>
+      <line x1="13" y1="9" x2="4" y2="9"/>
+      <line x1="13" y1="13" x2="3" y2="16"/>
+      <line x1="13" y1="7" x2="19" y2="3"/>
+      <line x1="13" y1="9" x2="22" y2="9"/>
+      <line x1="13" y1="13" x2="23" y2="16"/>
+    </g>
+  </svg>
+</div>
 
-  <div class="container">
-    <section>
-      <h2>About Me</h2>
-      <p>I am a Creative Developer & Technical Artist with a strong background in game programming, 3D modeling, animation, and VFX compositing. Proficient in C++ and C# with hands-on experience building both 2D and 3D interactive experiences in Unreal Engine and Unity. Driven by a passion for game history, mechanics, and collaborative problem-solving, I am dedicated to bringing creative concepts to life and supporting my team’s success.</p>
-    </section>
-
-    <section>
-      <h2>Skills & Technologies</h2>
-      <div class="skills-grid">
-        <span class="skill-badge">C++ & C#</span>
-        <span class="skill-badge">Unreal Engine</span>
-        <span class="skill-badge">Unity</span>
-        <span class="skill-badge">GameMaker</span>
-        <span class="skill-badge">HLSL / Shaders</span>
-        <span class="skill-badge">Python / Kotlin</span>
-        <span class="skill-badge">Autodesk Maya</span>
-        <span class="skill-badge">Substance Painter</span>
-        <span class="skill-badge">Foundry Nuke</span>
-        <span class="skill-badge">Git Version Control</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projects: Engine Architecture</h2>
-      
-      <div class="project">
-        <h3>IExeEngine <span class="project-date">April 2025</span></h3>
-        <p><em>A custom game engine capable of developing 2D or 3D games.</em></p>
-        <ul>
-          <li>Hands-on experience with the complete C++ build process, including linking and compilation.</li>
-          <li>Integrated external elements, such as DirectX 11 & the Bullet physics engine, to allow for in-engine rendering and physics.</li>
-          <li>Implemented the graphics pipeline manually using custom shaders.</li>
-        </ul>
-        <a href="https://github.com/IbrahimExe/IExeEngine" target="_blank">View on GitHub &rarr;</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projects: Gameplay & Interactive Systems</h2>
-
-      <div class="project">
-        <h3>Bring the Balance <span class="project-date">August 2026</span></h3>
-        <p><em>A 3D, RPG Simulation game built in Unreal Engine for CVGM.</em></p>
-        <ul>
-          <li>An educational interactive installation proposed by the Canadian Video Game Museum and built at the Centre for Digital Media in a team of 6.</li>
-          <li>Utilized a combination of C++ programming inside Unreal, alongside Blueprint scripting.</li>
-          <li>Designed and developed a scalable user interface setup and functionality.</li>
-          <li>Collaborated with developer teammates using version control on GitLab.</li>
-        </ul>
-        <a href="https://thecdm.ca/projects/revealing-art-balance-canadian-video-game-museum" target="_blank">View Project &rarr;</a>
-      </div>
-
-      <div class="project">
-        <h3>De-File <span class="project-date">Feb 2026</span></h3>
-        <p><em>A 2D physics-based puzzle game made in one week inside Unity.</em></p>
-        <ul>
-          <li>Implemented a physics-based particle system that simulates liquid behavior in a 2D environment.</li>
-          <li>Designed and developed the UI system (menus, objective screens, effects) and programmed functionality in C#.</li>
-        </ul>
-        <a href="https://ibrahimexe.itch.io/de-file" target="_blank">Play on Itch.io &rarr;</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p><strong>Bachelor of Science – Game Programming</strong><br>
-      LaSalle College Vancouver | 2023 - 2026</p>
-      
-      <p><strong>3D Design & Visual Effects Diploma</strong><br>
-      Vancouver Film School | 2022 - 2023</p>
-      
-      <p><strong>Foundation Visual Arts & Design Diploma</strong><br>
-      Vancouver Film School | 2021 - 2022</p>
-    </section>
-
+<!-- ============================================
+     NAV
+============================================ -->
+<header id="top-nav">
+  <div class="nav-row">
+    <a href="#hero" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2 L12 22 M2 12 L22 12 M4.5 4.5 L19.5 19.5 M19.5 4.5 L4.5 19.5" stroke="#000" stroke-width="1.4" fill="none"/></svg>
+      </span>
+      IBRAHIM
+    </a>
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="primary-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
+</header>
+
+<!-- ============================================
+     HERO
+============================================ -->
+<section id="hero">
+  <div id="hero-media"></div>
+  <!--
+    HOW TO ADD YOUR HERO VIDEO:
+    1. Drop an .mp4 (and ideally a .webm) into assets/video/, e.g. assets/video/hero.mp4
+    2. Uncomment the <video> block below and update the src paths.
+    3. Keep it short (5-15s), muted, and loopable — think a quick engine demo, gameplay clip,
+       or a shader reel. autoplay only works muted, so don't remove the `muted` attribute.
+  -->
+  <!--
+  <video id="hero-video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+    <source src="assets/video/hero.mp4" type="video/mp4">
+    <source src="assets/video/hero.webm" type="video/webm">
+  </video>
+  -->
+  <div id="spidey-sense"></div>
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Vancouver, BC · Available for opportunities</p>
+    <h1 id="hero-name">Ibrahim<br>Ishaq</h1>
+    <span id="hero-role">Game Programmer / Technical Artist</span>
+    <p id="hero-lede">I build the engines, tools, and systems underneath games — from a C++ renderer written from scratch to shipped Unity and Unreal projects. Currently finishing a B.Sc. in Game Programming at LaSalle College Vancouver.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn primary">View Projects</a>
+      <a href="mailto:ibrahimmiishaq@gmail.com" class="btn">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span></span>Scroll</div>
+</section>
+
+<!-- ============================================
+     ABOUT
+============================================ -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">// About</span>
+    <h2 class="section-title">The Origin Story</h2>
+    <div class="about-grid" style="margin-top:2rem;">
+      <p>
+        I'm a creative developer and technical artist with a background in game programming, 3D modelling,
+        animation, and VFX compositing. I'm proficient in <strong>C++</strong> and <strong>C#</strong>, with
+        hands-on experience building 2D and 3D interactive experiences in <strong>Unreal Engine</strong> and
+        <strong>Unity</strong> — and I like going one level deeper, which is why I built my own engine from
+        the ground up rather than only working on top of someone else's.
+      </p>
+      <p style="margin-top:1.2rem;">
+        I'm driven by game history, mechanics, and collaborative problem-solving. Whether it's writing a
+        custom graphics pipeline, shipping a museum installation, or prototyping a game jam idea in a week,
+        I care about understanding how the thing actually works.
+      </p>
+      <div>
+        <div class="stat-card"><span class="num">12+</span><span class="label">Shipped &amp; ongoing projects</span></div>
+        <div class="stat-card"><span class="num">3</span><span class="label">Engines used: custom, Unreal, Unity</span></div>
+        <div class="stat-card"><span class="num">2021–26</span><span class="label">Vancouver Film School &rarr; LaSalle</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SKILLS
+============================================ -->
+<section id="skills" class="halftone">
+  <div class="wrap">
+    <span class="eyebrow">// Toolkit</span>
+    <h2 class="section-title">Skills &amp; Tech</h2>
+    <div class="skills-grid">
+      <span class="skill-badge">C++ &amp; C#</span>
+      <span class="skill-badge">Unreal Engine</span>
+      <span class="skill-badge">Unity</span>
+      <span class="skill-badge">GameMaker</span>
+      <span class="skill-badge">Cocos2D</span>
+      <span class="skill-badge">HLSL / Shaders</span>
+      <span class="skill-badge">DirectX 11</span>
+      <span class="skill-badge">Bullet Physics</span>
+      <span class="skill-badge">Python / Kotlin</span>
+      <span class="skill-badge">Autodesk Maya</span>
+      <span class="skill-badge">Substance Painter</span>
+      <span class="skill-badge">Foundry Nuke</span>
+      <span class="skill-badge">Git / GitLab</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PROJECTS
+============================================ -->
+<section id="projects">
+  <div class="wrap">
+    <span class="eyebrow">// Field Log</span>
+    <h2 class="section-title">Projects</h2>
+    <p style="color:var(--muted); max-width:60ch; margin-top:0.6rem;">Twelve builds, one after another — engines, tools, games, and a few detours into AI. Filter by category or just scroll the whole web.</p>
+
+    <div class="filter-row" id="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="engine">Engine / Tools</button>
+      <button class="filter-btn" data-filter="unreal">Unreal</button>
+      <button class="filter-btn" data-filter="unity">Unity</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+      <button class="filter-btn" data-filter="ai">Python / AI</button>
+      <button class="filter-btn" data-filter="other">Other Engines</button>
+    </div>
+
+    <div class="project-grid" id="project-grid">
+
+      <!-- 1. IExeEngine -->
+      <article class="project-card" data-category="engine">
+        <div class="card-media">
+          <div class="glyph-bg">IEE</div>
+          <span class="cat-icon" title="Engine / Tools"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>IExeEngine</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">C++ Engine · Shaders</span>
+          <p class="card-desc">A custom game engine built from the ground up in C++, capable of driving 2D or 3D games — including its own manually implemented graphics pipeline.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/IExeEngine" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. File Creator Tool -->
+      <article class="project-card" data-category="engine">
+        <div class="card-media">
+          <div class="glyph-bg">FCT</div>
+          <span class="cat-icon" title="Tool"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>File Creator Tool</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">WPF · XAML Tool</span>
+          <p class="card-desc">A self-contained WPF/XAML utility that generates and links all the boilerplate files you need in a custom engine — fast, packaged, and ready to run.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/IExeEngine/releases/tag/v1%2C0" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              Release v1.0
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Bring the Balance -->
+      <article class="project-card" data-category="unreal">
+        <div class="card-media">
+          <div class="glyph-bg">BTB</div>
+          <span class="cat-icon" title="Unreal Engine"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Bring the Balance</h3>
+            <span class="team-badge">Team of 6</span>
+          </div>
+          <span class="card-type">Unreal Engine · 3D Sim</span>
+          <p class="card-desc">An educational RPG-simulation installation proposed by the Canadian Video Game Museum and built at The Centre for Digital Media to teach players about balance in competitive game design. C++ inside Unreal alongside Blueprint scripting, plus a scalable UI system.</p>
+          <div class="card-links">
+            <a href="https://thecdm.ca/projects/revealing-art-balance-canadian-video-game-museum" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+              View Project
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. De-File -->
+      <article class="project-card" data-category="unity">
+        <div class="card-media">
+          <div class="glyph-bg">DFL</div>
+          <span class="cat-icon" title="Unity"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="M3 7v10l9 5 9-5V7"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>De-File</h3>
+            <span class="team-badge">Team of 5</span>
+          </div>
+          <span class="card-type">Unity · 2D Puzzle</span>
+          <p class="card-desc">A 2D physics-based puzzle game with dark themes, built in one week for the 2026 Global Game Jam. Includes a particle system simulating liquid behaviour, plus a full UI system built in C#.</p>
+          <div class="card-links">
+            <a href="https://ibrahimexe.itch.io/de-file" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+              Play on Itch.io
+            </a>
+            <a href="https://github.com/Ghuztavo/De-File" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Wishlister -->
+      <article class="project-card" data-category="mobile">
+        <div class="card-media">
+          <div class="glyph-bg">WSH</div>
+          <span class="cat-icon" title="Mobile"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Wishlister</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">Kotlin · Mobile App</span>
+          <p class="card-desc">A cataloging app for gamers to track, rate, review, and discuss games they've played or want to play — indie or AAA.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/Wishlister" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. PalmStation -->
+      <article class="project-card" data-category="ai">
+        <div class="card-media">
+          <div class="glyph-bg">PLM</div>
+          <span class="cat-icon" title="Python / AI"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 3H4v6M4 3l7 7M15 21h5v-6M20 21l-7-7"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>PalmStation</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">Python · Gesture AI</span>
+          <p class="card-desc">A small Python + AI project demonstrating gesture recognition using Google's MediaPipe Hands and OpenCV, controlling the webcam through hand gestures alone.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/PalmStation" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. ScribbleJet -->
+      <article class="project-card" data-category="unity">
+        <div class="card-media">
+          <div class="glyph-bg">SCJ</div>
+          <span class="cat-icon" title="Unity"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="M3 7v10l9 5 9-5V7"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>ScribbleJet</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">Unity · Mobile Concept</span>
+          <p class="card-desc">A mobile game concept built in Unity that also explores Unity's advertising behaviours through Unity Gaming Services (UGS/UGM).</p>
+          <div class="card-links">
+            <a href="https://ibrahimexe.itch.io/scribblejet" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+              Play on Itch.io
+            </a>
+            <a href="https://github.com/IbrahimExe/ScibbleJet" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Adaputus -->
+      <article class="project-card" data-category="other">
+        <div class="card-media">
+          <div class="glyph-bg">ADP</div>
+          <span class="cat-icon" title="GameMaker"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.5" fill="currentColor" stroke="none"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Adaputus</h3>
+            <span class="team-badge">Team of 3</span>
+          </div>
+          <span class="card-type">GameMaker · 2D Sandbox</span>
+          <p class="card-desc">A physics-based sandbox game about adapting through constant iteration — built in GameMaker.</p>
+          <div class="card-links">
+            <a href="https://github.com/BenjaminHalko/Adapatus" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Premier League CNN -->
+      <article class="project-card" data-category="ai">
+        <div class="card-media">
+          <div class="glyph-bg">CNN</div>
+          <span class="cat-icon" title="Python / AI"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 3H4v6M4 3l7 7M15 21h5v-6M20 21l-7-7"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Premier League CNN</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">Python · Colab · AI</span>
+          <p class="card-desc">A Google Colab notebook exploring the fundamentals of AI architecture through a Convolutional Neural Network trained on a soccer club logo dataset.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/PremierLeague_CNN" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. CoConcurrency -->
+      <article class="project-card" data-category="other">
+        <div class="card-media">
+          <div class="glyph-bg">CCX</div>
+          <span class="cat-icon" title="Cocos2D"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>CoConcurrency</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">Cocos2D · C++</span>
+          <p class="card-desc">Practising concurrency and parallel programming with a simple 2D physics-based sandbox built using the Cocos2D engine.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/CoConcurrency" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. The Silent Strain -->
+      <article class="project-card" data-category="unreal">
+        <div class="card-media">
+          <div class="glyph-bg">TSS</div>
+          <span class="cat-icon" title="Unreal Engine"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>The Silent Strain</h3>
+            <span class="team-badge solo">Solo</span>
+          </div>
+          <span class="card-type">Unreal Engine 5.6 · Horror</span>
+          <p class="card-desc">A first-person horror game built in Unreal Engine 5.6 as an attempt to learn the fast-growing engine — enemy AI behaviours, custom animation, and a handful of FAB assets.</p>
+          <div class="card-links">
+            <a href="https://ibrahimexe.itch.io/the-silent-strain" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+              Play on Itch.io
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. Project: Rush Rot -->
+      <article class="project-card" data-category="unity">
+        <div class="card-media">
+          <div class="glyph-bg">PRR</div>
+          <span class="cat-icon" title="Unity"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="M3 7v10l9 5 9-5V7"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Project: Rush Rot</h3>
+            <span class="team-badge">Team of 5</span>
+          </div>
+          <span class="card-type">Unity · 3D Roguelike</span>
+          <p class="card-desc">A third-person endless-runner roguelike with an upgrade system, multiple characters, and physics tuned to make every run unique.</p>
+          <div class="card-links">
+            <a href="https://github.com/IbrahimExe/ProjectRushRot" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p id="no-results" style="display:none; color:var(--muted); font-family:var(--mono); margin-top:2rem;">Nothing here yet — try a different category.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     EDUCATION
+============================================ -->
+<section id="education" class="halftone">
+  <div class="wrap">
+    <span class="eyebrow">// Training</span>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <span class="edu-date">2023 – 2026</span>
+        <h3>Bachelor of Science — Game Programming</h3>
+        <span class="edu-school">LaSalle College Vancouver</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-date">2022 – 2023</span>
+        <h3>3D Design &amp; Visual Effects Diploma</h3>
+        <span class="edu-school">Vancouver Film School</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-date">2021 – 2022</span>
+        <h3>Foundation Visual Arts &amp; Design Diploma</h3>
+        <span class="edu-school">Vancouver Film School</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER / CONTACT
+============================================ -->
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's Build Something</h2>
+    <p>Looking for a game programmer or technical artist? I'm always up for talking engines, tools, or your next project.</p>
+    <div class="footer-links">
+      <a href="mailto:ibrahimmiishaq@gmail.com" class="btn primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/ibrahimig" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+      <a href="https://github.com/IbrahimExe" target="_blank" rel="noopener" class="btn">GitHub</a>
+    </div>
+    <p class="footer-fine">&copy; <span id="year"></span> Ibrahim Ishaq. Built &amp; hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Mobile nav ---------- */
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('primary-nav');
+  toggle.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  /* ---------- Project filtering ---------- */
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.project-card');
+  var noResults = document.getElementById('no-results');
+
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      var visibleCount = 0;
+      cards.forEach(function(card){
+        var match = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.classList.toggle('hidden-card', !match);
+        if (match) visibleCount++;
+      });
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  });
+
+  /* ---------- Spidey-sense cursor glow (desktop, hero only) ---------- */
+  var hero = document.getElementById('hero');
+  var sense = document.getElementById('spidey-sense');
+  if (window.matchMedia('(hover: hover)').matches && !reduceMotion){
+    hero.addEventListener('mousemove', function(e){
+      var rect = hero.getBoundingClientRect();
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
+      sense.style.setProperty('--mx', x + '%');
+      sense.style.setProperty('--my', y + '%');
+    });
+  }
+
+  /* ---------- Web-thread scroll signature ---------- */
+  var progress = document.getElementById('thread-progress');
+  var spider = document.getElementById('thread-spider');
+  var threadWrap = document.getElementById('web-thread-wrap');
+
+  function updateThread(){
+    if (!threadWrap || threadWrap.offsetParent === null) return;
+    var doc = document.documentElement;
+    var scrollTop = doc.scrollTop || document.body.scrollTop;
+    var scrollHeight = doc.scrollHeight - doc.clientHeight;
+    var pct = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+    var vh = window.innerHeight;
+
+    progress.style.strokeDashoffset = 3000 - (3000 * pct);
+    spider.style.transform = 'translateY(' + (pct * (vh - 26)) + 'px)';
+  }
+
+  /* size the thread SVG viewBox to the actual viewport height */
+  function sizeThread(){
+    var svg = threadWrap.querySelector('svg');
+    var vh = window.innerHeight;
+    svg.setAttribute('viewBox', '0 0 34 ' + vh);
+    document.getElementById('thread-path').setAttribute('d', 'M17,0 L17,' + vh);
+    progress.setAttribute('d', 'M17,0 L17,' + vh);
+    progress.style.strokeDasharray = vh;
+    progress.style.strokeDashoffset = vh;
+  }
+
+  window.addEventListener('resize', sizeThread);
+  window.addEventListener('scroll', updateThread, { passive:true });
+  sizeThread();
+  updateThread();
+
+  /* ---------- Back to top ---------- */
+  var backBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    backBtn.classList.toggle('show', window.scrollY > 600);
+  }, { passive:true });
+  backBtn.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  /* ---------- Footer year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Hero video graceful fallback ---------- */
+  var heroVideo = document.getElementById('hero-video');
+  if (heroVideo){
+    heroVideo.addEventListener('error', function(){ heroVideo.style.display = 'none'; });
+  }
+})();
+</script>
+
 </body>
 </html>
