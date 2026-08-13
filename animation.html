@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+<title>Ibrahim Ishaq | Animation &amp; VFX</title>
+<meta name="description" content="Animation and VFX portfolio of Ibrahim Ishaq — 3D animation, compositing, lighting, and video editing work from Vancouver Film School.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/spiderverse.css">
+</head>
+<body>
+
+<div id="web-thread" aria-hidden="true"><svg></svg></div>
+
+<!-- ============================================
+     NAV
+============================================ -->
+<header id="top-nav">
+  <div class="nav-row">
+    <a href="#hero" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2 L12 22 M2 12 L22 12 M4.5 4.5 L19.5 19.5 M19.5 4.5 L4.5 19.5" stroke="#000" stroke-width="1.4" fill="none"/></svg>
+      </span>
+      IBRAHIM
+    </a>
+    <div class="nav-right">
+      <div class="universe-switch">
+        <a href="index.html" title="Programming — Earth-616">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </a>
+        <a href="animation.html" class="active" title="Animation — Spider-Verse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </a>
+      </div>
+      <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav id="primary-nav">
+      <a href="#about-anim">About</a>
+      <a href="#reel">Reel</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================
+     HERO
+============================================ -->
+<section id="hero">
+  <div id="hero-media"></div>
+  <div id="spidey-sense"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Vancouver, BC · Spider-Verse · Vancouver Film School</p>
+    <h1 class="hero-name">Ibrahim<br>Ishaq</h1>
+    <span class="hero-role">3D Animator / Technical Compositor</span>
+    <p class="hero-lede">Before I was writing engines, I was lighting scenes in Maya and pulling composites together in Nuke. This is the other half of the multiverse - 3D animation, VFX, and motion work from my time at Vancouver Film School.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn primary">View Projects</a>
+      <a href="index.html" class="btn">Back to Earth-616</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span></span>Scroll</div>
+</section>
+
+<!-- ============================================
+     DEMO REEL
+============================================ -->
+<section id="reel" class="reel-section" data-thread-label="Reel">
+  <div class="wrap">
+    <span class="eyebrow">// Demo Reel</span>
+    <div class="demo-reel" data-yt-id="" data-title="Animation Demo Reel">
+      <div class="reel-frame">
+        <div class="reel-placeholder">
+          <div class="play-ring">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </div>
+          <strong>Animation Reel — Coming Soon</strong>
+          <span>Swap in your YouTube ID in animation.html</span>
+        </div>
+      </div>
+      <div class="reel-bar">
+        <span class="reel-label">Animation Demo Reel</span>
+        <button class="reel-toggle" aria-expanded="true">
+          <span class="reel-toggle-text">Minimize Reel</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ABOUT THIS UNIVERSE
+============================================ -->
+<section id="about-anim" class="halftone" data-thread-label="About">
+  <div class="wrap">
+    <span class="eyebrow">// Origin</span>
+    <h2 class="section-title">An Animation Timeline</h2>
+    <p style="color:var(--muted); max-width:65ch; margin-top:1rem; font-size:1.05rem;">
+      Before LaSalle, I spent two years at Vancouver Film School - a Foundation year in Visual Arts &amp; Design,
+      then a diploma in 3D Design &amp; Visual Effects. That's where I learned to light a scenes in
+      <strong style="color:var(--ink)">Maya</strong> and <strong style="color:var(--ink)">Redshift</strong>,
+      composite in <strong style="color:var(--ink)">Foundry Nuke</strong>, and cut and finish motion work in
+      <strong style="color:var(--ink)">After Effects</strong> and <strong style="color:var(--ink)">Illustrator</strong>.
+      It's a different set of tools than my engine work, but the same instinct - figure out how the thing is actually made.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     PROJECTS
+============================================ -->
+<section id="projects" data-thread-label="Projects">
+  <div class="wrap">
+    <span class="eyebrow">// Reel Log</span>
+    <h2 class="section-title">Animation &amp; VFX Work</h2>
+    <p style="color:var(--muted); max-width:60ch; margin-top:0.6rem;">Four pieces from Vancouver Film School — an app concept, two 3D animation projects, and a general editing &amp; VFX reel.</p>
+
+    <div class="project-grid" style="margin-top:2rem;">
+
+      <!-- 1. GaffAR -->
+      <article class="project-card">
+        <div class="card-media">
+          <div class="glyph-bg">GAF</div>
+          <span class="cat-icon" title="App Concept"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>GaffAR</h3>
+            <span class="team-badge solo">Concept &amp; Motion</span>
+          </div>
+          <span class="card-type">App Concept · Illustrator, After Effects</span>
+          <p class="card-desc">An app concept for soccer players — record your kicking technique and the app rates your form and helps you improve. Designed and animated the concept in Illustrator and After Effects.</p>
+          <div class="card-links">
+            <span style="font-family:var(--mono); font-size:0.78rem; color:var(--muted); opacity:0.7;">YouTube link — coming soon</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Domino -->
+      <article class="project-card">
+        <div class="card-media">
+          <div class="glyph-bg">DOM</div>
+          <span class="cat-icon" title="3D Animation"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="10" rx="1"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Domino</h3>
+            <span class="team-badge solo">Compositor</span>
+          </div>
+          <span class="card-type">3D Animation · Foundry Nuke</span>
+          <p class="card-desc">A 3D animation short. I handled the compositing pass in Foundry Nuke, pulling together the rendered layers into the final image.</p>
+          <div class="card-links">
+            <span style="font-family:var(--mono); font-size:0.78rem; color:var(--muted); opacity:0.7;">YouTube link — coming soon</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Whitlock's Circus -->
+      <article class="project-card">
+        <div class="card-media">
+          <div class="glyph-bg">WLC</div>
+          <span class="cat-icon" title="3D Animation"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Whitlock's Circus</h3>
+            <span class="team-badge solo">Lighting &amp; Compositing</span>
+          </div>
+          <span class="card-type">3D Animation · Maya, Redshift, Nuke</span>
+          <p class="card-desc">A 3D animation short. I lit the scenes in Maya using Redshift and composited the final shots in Foundry Nuke.</p>
+          <div class="card-links">
+            <span style="font-family:var(--mono); font-size:0.78rem; color:var(--muted); opacity:0.7;">YouTube link — coming soon</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Video Editing Reel -->
+      <article class="project-card">
+        <div class="card-media">
+          <div class="glyph-bg">EDT</div>
+          <span class="cat-icon" title="Video Editing"><svg viewBox="0 0 24 24" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h3>Video Editing Reel</h3>
+            <span class="team-badge solo">Editor</span>
+          </div>
+          <span class="card-type">Video Editing · VFX</span>
+          <p class="card-desc">A general reel showcasing video editing and VFX work, with a particular focus on title and intro sequence creation.</p>
+          <div class="card-links">
+            <span style="font-family:var(--mono); font-size:0.78rem; color:var(--muted); opacity:0.7;">YouTube link — coming soon</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER / CONTACT
+============================================ -->
+<footer id="contact" data-thread-label="Contact">
+  <div class="wrap">
+    <h2>Let's Build Something</h2>
+    <p>Looking for a 3D animator, compositor, or technical artist? I'm always up for talking lighting, comp, or your next project.</p>
+    <div class="footer-links">
+      <a href="mailto:ibrahimmiishaq@gmail.com" class="btn primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/ibrahimig" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+      <a href="https://github.com/IbrahimExe" target="_blank" rel="noopener" class="btn">GitHub</a>
+    </div>
+    <p class="footer-fine">&copy; <span id="year"></span> Ibrahim Ishaq. Built &amp; hosted on GitHub Pages. &nbsp;·&nbsp; <a href="index.html" style="color:var(--primary); text-decoration:underline;">Back to the Programming universe &rarr;</a></p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

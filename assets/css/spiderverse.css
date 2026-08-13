@@ -1,0 +1,35 @@
+/* SPIDER-VERSE — Animation universe: chromatic-aberration duotone, VFS work */
+:root{
+  --bg:#0d0714;
+  --panel:#1a0f2e;
+  --panel2:#241640;
+  --line:#3a2359;
+
+  --primary:#ff2ec4;      /* hot magenta */
+  --primary-dim:#b81f8f;
+  --primary2:#29e0ff;     /* cyan — the chromatic-aberration split */
+  --accent:#f4e04d;       /* halftone yellow */
+
+  --ink:#f3eaff;
+  --muted:#a394c2;
+}
+
+body{
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(255,46,196,0.14), transparent 42%),
+    radial-gradient(circle at 88% 25%, rgba(41,224,255,0.10), transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(244,224,77,0.05), transparent 50%);
+}
+
+/* extra dose of Ben-Day dots + a subtle RGB-split flicker on headings for this universe */
+.section-title, h1.hero-name{
+  animation: rgb-flicker 6s ease-in-out infinite;
+}
+@keyframes rgb-flicker{
+  0%, 92%, 100%{ text-shadow: 4px 4px 0 var(--primary), 8px 8px 0 var(--primary2); }
+  94%{ text-shadow: 6px 2px 0 var(--primary), 10px 6px 0 var(--primary2); }
+  96%{ text-shadow: 2px 5px 0 var(--primary), 6px 9px 0 var(--primary2); }
+}
+@media (prefers-reduced-motion: reduce){
+  .section-title, h1.hero-name{ animation:none; }
+}

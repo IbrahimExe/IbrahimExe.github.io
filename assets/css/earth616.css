@@ -1,0 +1,23 @@
+/* EARTH-616 — Programming universe: classic Spider-Man */
+:root
+{
+  --bg:#080b13;
+  --panel:#121a2c;
+  --panel2:#1b2540;
+  --line:#2a3454;
+
+  --primary:#e0292a;
+  --primary-dim:#a11f20;
+  --primary2:#000000;
+  --accent:#f2a93b;
+
+  --ink:#f2efe6;
+  --muted:#8d93a8;
+}
+
+body
+{
+  background-image:
+    radial-gradient(circle at 15% 8%, rgba(224,41,42,0.10), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(242,169,59,0.06), transparent 45%);
+}
