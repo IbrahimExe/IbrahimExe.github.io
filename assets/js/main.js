@@ -19,7 +19,7 @@
     });
   }
 
-  /* ---------- Project filtering ---------- */
+  /* ---------- Project filtering (only runs if a filter row exists) ---------- */
   var filterBtns = document.querySelectorAll('.filter-btn');
   var cards = document.querySelectorAll('.project-card');
   var noResults = document.getElementById('no-results');
@@ -56,7 +56,7 @@
   /* ---------- Web-thread wayfinder ----------
      A vertical strand sits in the page's left gutter (wide screens only).
      Nodes are placed at the actual scroll position of each tracked section,
-     connected to the strand with a short anchor thread - a mini web-map of
+     connected to the strand with a short anchor thread — a mini web-map of
      the page, not just a line. Click a node to jump to that section. */
   var threadEl = document.getElementById('web-thread');
   if (threadEl){
@@ -206,13 +206,18 @@
     }
   });
 
-  /* ---------- Project-card YouTube lite-embeds (click to play) ---------- */
+  /* ---------- Project-card YouTube lite-embeds (click to play) ----------
+     data-yt-start (seconds) is optional — used when a card should jump
+     straight to a specific moment in a longer reel (e.g. two projects
+     that live back-to-back in the same uploaded video). */
   document.querySelectorAll('.card-yt').forEach(function(btn){
     btn.addEventListener('click', function(){
       var id = btn.getAttribute('data-yt-id');
       if (!id) return;
+      var start = btn.getAttribute('data-yt-start');
       var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&rel=0&modestbranding=1' + (start ? '&start=' + start : '');
       iframe.title = btn.getAttribute('data-title') || 'Project video';
       iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
       iframe.allowFullscreen = true;
