@@ -35,7 +35,8 @@ html{scroll-behavior:smooth;}
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
 }
 
-/* Cross-document view transitions between universes */
+/* Cross-document view transitions between universes (progressive enhancement —
+   unsupported browsers just navigate normally, nothing breaks). */
 @view-transition{ navigation: auto; }
 ::view-transition-old(root), ::view-transition-new(root){ animation-duration:0.45s; }
 ::view-transition-new(root){ animation-name: universe-in; }
@@ -150,7 +151,7 @@ header#top-nav{
 
 .nav-right{display:flex; align-items:center; gap:0.9rem;}
 
-/* webpge switch - always visible, outside the collapsible mobile menu */
+/* universe switch — always visible, outside the collapsible mobile menu */
 .universe-switch{
   display:flex; border:2px solid var(--line); background:var(--panel);
 }
@@ -403,6 +404,28 @@ h1.hero-name{
 .edu-item h3{font-family:var(--body); font-weight:700; font-size:1.1rem; color:var(--ink);}
 .edu-item .edu-school{color:var(--primary); font-family:var(--mono); font-size:0.85rem;}
 .edu-item .edu-date{color:var(--muted); font-family:var(--mono); font-size:0.78rem; text-transform:uppercase;}
+
+/* ============================================
+   RESUME
+============================================ */
+.resume-card{
+  border:2px solid var(--line); background:var(--panel); box-shadow:var(--hard-black);
+  overflow:hidden; max-width:640px; margin-top:2rem;
+}
+.resume-embed{ aspect-ratio: 1 / 1.294; background:#1a1a1a; }
+.resume-embed iframe{ width:100%; height:100%; border:0; display:block; }
+.resume-mobile-note{
+  display:none; flex-direction:column; align-items:center; gap:0.8rem; text-align:center;
+  padding:3.5rem 1.5rem; background:var(--panel2);
+}
+.resume-mobile-note svg{width:40px; height:40px; color:var(--primary);}
+.resume-mobile-note strong{font-family:var(--display); font-size:1.4rem; text-transform:uppercase; color:var(--ink);}
+.resume-mobile-note span{font-family:var(--mono); font-size:0.8rem; color:var(--muted);}
+@media (max-width: 700px){
+  .resume-embed{ display:none; }
+  .resume-mobile-note{ display:flex; }
+}
+.resume-actions{display:flex; gap:1rem; margin-top:1.4rem; flex-wrap:wrap;}
 
 /* ============================================
    FOOTER
